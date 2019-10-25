@@ -2,16 +2,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+  entry: './src/index.tsx',
   output: {
     filename: '[name].min.js',
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        use: ['ts-loader'],
+        exclude: /node_modules/,
       },
       {
         test: /\.(css)$/,
@@ -47,6 +54,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   }
 }
