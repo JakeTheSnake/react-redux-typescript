@@ -1,29 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Dispatch } from 'react';
+import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
+import { TodoState, VisibilityFilter, Todo } from '../../store/app/reducer';
+import { Action } from 'redux';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
- }
-  
-  render() {
-    return (
-      <div>
-        <h1>
-          HEJ
-        </h1>
-        <ul>
-          <li>Abc</li>
-          <li>Def</li>
-          <li>asdf</li>
-        </ul>
-      </div>
-    );
-  }
+type AppProps = {
+  todos: Todo[]
+}
+type TodoActions = {
+  toggleTodo: (id: number) => void
 }
 
-const mapStateToProps = state => ({
+const App = ({todos}: AppProps) => {
+  return <div>
+    <ul>
+      {
+        todos.map(todo => <li key={todo.id}>{todo.text}</li>)
+      }
+    </ul>
+  </div>
+};
+
+const mapStateToProps: MapStateToProps<AppProps, AppProps, TodoState> = (state: AppProps) => ({
+  todos: state.todos
 });
+
+/*const mapDispatchToProps: MapDispatchToProps<TodoActions, AppProps> = (dispatch) => {
+  toggleTodo: (id) => dispatch(id)
+}*/
 
 export default connect(mapStateToProps, {
 })(App);
