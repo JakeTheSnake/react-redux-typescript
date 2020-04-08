@@ -1,15 +1,14 @@
 {
-  "name": "react-routing",
+  "name": "react-redux-typescript",
   "version": "1.0.0",
-  "description": "Dynamic routing with React",
-  "main": "index.js",
+  "description": "Simple React-Redux-Typescript app",
   "keywords": [],
-  "author": "Amir Ossanloo",
+  "author": "Jakob Ström",
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode=development",
-    "dist": "webpack --mode=production"
+    "serve": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -18,7 +17,6 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
-    "redux": "^4.0.4",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
@@ -34,7 +32,6 @@
     "immutable": "^4.0.0-rc.12",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-redux": "^7.1.1",
-    "uuid": "^3.3.3"
+    "react-redux": "^7.1.1"
   }
 }
